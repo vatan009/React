@@ -6,17 +6,20 @@ import {CORE_CONCEPTS} from '../data.js'
 import { TabButtons } from './ChildProps.jsx'
 export default function Intro(){
 
+  let tabContent='Please click a button'
+  function handleSelect({selectedButton}){
+
+    //selected Buttons => components,jsx,props,state
+    tabContent=selectedButton;
+    console.log('tabcontent')
+
+  }
+
    return(
    <div className="">
 <Header/>
 <DynamicValues/>
-<nav>
-  <ul className="tab-buttons">
-    <TabButtons>Overview</TabButtons>
-    <TabButtons>Details</TabButtons>
-    <TabButtons>Examples</TabButtons>
-  </ul>
-</nav>
+
 <main>
   <section id='core-concepts'>
     <h2>Core Concepts</h2>
@@ -36,11 +39,22 @@ export default function Intro(){
     ))}
     </ul>
 
-   
+
   </section>
-  <h2>
+    <h2>
     Time to get started
   </h2>
+
+  <section id='examples'>
+  <menu >
+    <TabButtons onSelect={()=>handleSelect('components')}>Components</TabButtons>
+    <TabButtons onSelect={()=>handleSelect('jsx')}>JSX</TabButtons>
+    <TabButtons onSelect={()=>handleSelect('props')}>Props</TabButtons>
+    <TabButtons onSelect={()=>handleSelect('state')}>State</TabButtons>
+  </menu>
+  {tabContent}
+</section>
+
 </main>
 
    </div>
