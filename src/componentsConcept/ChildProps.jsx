@@ -10,3 +10,4 @@ export function TabButtons({children,onSelect}){
     </li>
   )
 }
+ 
