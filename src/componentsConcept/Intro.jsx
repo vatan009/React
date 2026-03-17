@@ -3,12 +3,20 @@ import DynamicValues from './DynamicValues.jsx'
 import {CoreConcept} from './ReusableComponents.jsx'
 import reactCore from '../assets/react-core-concepts.png'
 import {CORE_CONCEPTS} from '../data.js'
+import { TabButtons } from './ChildProps.jsx'
 export default function Intro(){
 
    return(
    <div className="">
 <Header/>
 <DynamicValues/>
+<nav>
+  <ul className="tab-buttons">
+    <TabButtons>Overview</TabButtons>
+    <TabButtons>Details</TabButtons>
+    <TabButtons>Examples</TabButtons>
+  </ul>
+</nav>
 <main>
   <section id='core-concepts'>
     <h2>Core Concepts</h2>
@@ -27,6 +35,8 @@ export default function Intro(){
       <CoreConcept{...el}/>
     ))}
     </ul>
+
+   
   </section>
   <h2>
     Time to get started
