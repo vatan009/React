@@ -3,17 +3,14 @@ import DynamicValues from './DynamicValues.jsx'
 import {CoreConcept} from './ReusableComponents.jsx'
 import reactCore from '../assets/react-core-concepts.png'
 import {CORE_CONCEPTS} from '../data.js'
-import { TabButtons } from './ChildProps.jsx'
-export default function Intro(){
+import { TabButtons } from './ChildProps.jsx';
+import {EXAMPLES}  from '../data.js'
+import {useState} from 'react'
+export default function Intro2(){
+const [selectedTopicState,setSelectedTopicState]=useState('components')
+  function handleSelect(selectedButton){
 
-  let tabContent='Please click a button';
-  function handleSelect({selectedButton}){
-
-    //selected Buttons => components,jsx,props,state
-     console.log(tabContent);
-    tabContent=selectedButton;
-    console.log(tabContent);
-
+    setSelectedTopicState(selectedButton)
   }
 
    return(
@@ -26,16 +23,6 @@ export default function Intro(){
     <h2>Core Concepts</h2>
     <ul>
     {CORE_CONCEPTS.map(el => (
-      // <CoreConcept
-      //   key={el.title}
-      //   image={el.image}
-      //   title={el.title}
-      //   description={el.description}
-      // />
-
-
-
-      //another method to add
       <CoreConcept{...el}/>
     ))}
     </ul>
@@ -53,7 +40,17 @@ export default function Intro(){
     <TabButtons onSelect={()=>handleSelect('props')}>Props</TabButtons>
     <TabButtons onSelect={()=>handleSelect('state')}>State</TabButtons>
   </menu>
-  {tabContent}
+  <div className="tab-content">
+    <h3>{EXAMPLES[selectedTopicState].title}</h3>
+    <p>
+      {EXAMPLES[selectedTopicState].description}
+    </p>
+    <pre>
+      <code>
+      {EXAMPLES[selectedTopicState].code}
+      </code>
+    </pre>
+  </div>
 </section>
 
 </main>
