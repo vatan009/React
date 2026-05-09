@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "section10-Context_API_and_useReducer",
+      "path": "../allsections/section10-Context_API_and_useReducer",
+    },
+    {
+      "name": "NotesFromUdemy",
+      "path": ".",
+    },
+    {
+      "name": "debug-journal",
+      "path": "../debug-journal",
+    },
+  ],
+  "settings": {},
+}
