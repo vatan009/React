@@ -1,4 +1,13 @@
-export default function Cart({ items, onUpdateItemQuantity }) {
+import { CartContext } from "../store/shopping-cart-context";
+import {use,useContext} from 'react'
+export default function Cart({ onUpdateItemQuantity }) {
+  // const { cartCtx } = useContext(CartContext);
+  const { items } = useContext(CartContext);
+
+  // if (true) {
+  //   const cartCtx = use(CartContext);
+  // }
+  //we can use hook with the above condition but not with useContext
   const totalPrice = items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -10,7 +19,7 @@ export default function Cart({ items, onUpdateItemQuantity }) {
       {items.length === 0 && <p>No items in cart!</p>}
       {items.length > 0 && (
         <ul id="cart-items">
-          {items.map((item) => {
+          {items.items.map((item) => {
             const formattedPrice = `$${item.price.toFixed(2)}`;
 
             return (
