@@ -3,7 +3,7 @@ import {use,useContext} from 'react'
 export default function Cart({ onUpdateItemQuantity }) {
   // const { cartCtx } = useContext(CartContext);
   const { items } = useContext(CartContext);
-
+//
   // if (true) {
   //   const cartCtx = use(CartContext);
   // }

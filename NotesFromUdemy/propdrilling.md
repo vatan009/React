@@ -24,6 +24,9 @@ possibly around all components in the app
 great thing about this : context value can easily connected to state
 so we can get rid of the props,stateupdating function we are passing
 
+const CartContext=createContext();
+CartContext will actually be a object
+
 
 
 
